@@ -2,7 +2,7 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 15:00:18
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-01-30 16:20:34
+ * @Last Modified time: 2023-01-30 17:41:52
  */
  -->
 
@@ -15,7 +15,7 @@
       v-if="items.length"
     >
       <template v-slot="{ item }">
-        <div class="user">{{ item.id }} {{ item.title }}</div>
+        <div class="user">{{ item }}</div>
       </template>
     </RecycleScroller>
   </div>
@@ -23,15 +23,20 @@
 
 <script setup>
 import { onMounted, reactive } from 'vue';
-const items = reactive([]);
-const getData = () => {
-  for (let i = 0; i < 200000; i++) {
-    items.push({ title: 'ssadqwesadwqe', id: i });
-  }
-};
+import { Ad } from '@/api/ad';
 
-onMounted(() => {
-  getData();
+const items = reactive([]);
+
+onMounted(async () => {
+  const d = await new Ad().getMany();
+  const dd = d.map((ad, index) => {
+    return {
+      id: index,
+      ad,
+    };
+  });
+
+  items.push(...dd);
 });
 </script>
 
