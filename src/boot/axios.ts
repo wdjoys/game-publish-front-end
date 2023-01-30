@@ -2,7 +2,7 @@
  * @Author: xiaocao
  * @Date:   2023-01-29 16:30:13
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-01-30 14:34:03
+ * @Last Modified time: 2023-01-30 21:39:10
  */
 import { boot } from 'quasar/wrappers';
 import axios, { AxiosInstance } from 'axios';
@@ -23,7 +23,7 @@ declare module '@vue/runtime-core' {
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const request = axios.create({ baseURL, timeout: 5000 });
+const request = axios.create({ baseURL, timeout: 30000 });
 
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
