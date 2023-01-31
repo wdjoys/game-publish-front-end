@@ -2,7 +2,7 @@
  * @Author: xiaocao
  * @Date:   2023-01-29 16:30:13
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-01-30 21:39:10
+ * @Last Modified time: 2023-01-31 09:27:51
  */
 import { boot } from 'quasar/wrappers';
 import axios, { AxiosInstance } from 'axios';
@@ -86,7 +86,7 @@ const err = (error: {
 request.interceptors.request.use((config) => {
   // console.log(store.getters['User/get_token'], 'ccc')
   const userInfo = user.getUserInfo() as UserInfo;
-  // console.log(token, 'ccc')
+
   if (userInfo) {
     config.headers.Authorization = 'Bearer ' + userInfo.token; // 让每个请求携带自定义 token 请根据实际情况自行修改
   }

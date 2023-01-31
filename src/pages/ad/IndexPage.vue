@@ -2,54 +2,30 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 15:00:18
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-01-30 17:41:52
+ * @Last Modified time: 2023-01-31 16:52:16
  */
  -->
 
 <template>
-  <div class="home">
-    <RecycleScroller
-      class="scroller"
-      :items="items"
-      :item-size="50"
-      v-if="items.length"
-    >
-      <template v-slot="{ item }">
-        <div class="user">{{ item }}</div>
-      </template>
-    </RecycleScroller>
-  </div>
+  <AdTable :AdList="AdList" />
 </template>
 
-<script setup>
-import { onMounted, reactive } from 'vue';
+<script setup lang="ts">
+import AdTable from 'components/ad/AdTable.vue';
 import { Ad } from '@/api/ad';
 
-const items = reactive([]);
+import { onBeforeMount, reactive } from 'vue';
 
-onMounted(async () => {
-  const d = await new Ad().getMany();
-  const dd = d.map((ad, index) => {
-    return {
-      id: index,
-      ad,
-    };
-  });
+let AdList: [] = reactive([]);
 
-  items.push(...dd);
+const getAdList = async () => {
+  const result: [] = (await new Ad().getMany()) as unknown as [];
+  Array.prototype.push.apply(AdList, result);
+};
+
+onBeforeMount(() => {
+  getAdList();
 });
 </script>
 
-<style lang="scss" scoped>
-.scroller {
-  height: 800px;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.user {
-  height: 50px;
-  padding: 0 12px;
-  display: flex;
-  align-items: center;
-}
-</style>
+<style lang="scss" scoped></style>
