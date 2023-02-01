@@ -2,13 +2,12 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 15:00:18
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-01 16:11:56
+ * @Last Modified time: 2023-02-01 23:26:32
  */
  -->
 
 <template>
-  11
-  <div style="width: 1000px; margin: 0 auto"><AdTable :AdList="AdList" /></div>
+  <AdTable class="ad-list" :AdList="AdList" />
 </template>
 
 <script setup lang="ts">
@@ -29,4 +28,10 @@ onBeforeMount(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.ad-list {
+  width: 950px;
+  margin: 0 auto;
+  background-color: $table-background;
+}
+</style>
