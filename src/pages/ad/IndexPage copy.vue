@@ -2,17 +2,17 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 15:00:18
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-01 16:11:56
+ * @Last Modified time: 2023-02-01 16:21:59
  */
  -->
 
 <template>
   11
-  <div style="width: 1000px; margin: 0 auto"><AdTable :AdList="AdList" /></div>
+  <div style="width: 1000px; margin: 0 auto"><AdTable /></div>
 </template>
 
 <script setup lang="ts">
-import AdTable from 'components/ad/AdTable.vue';
+import AdTable from 'components/ad/AdTable-1.vue';
 import { Ad } from '@/api/ad';
 
 import { onBeforeMount, reactive } from 'vue';

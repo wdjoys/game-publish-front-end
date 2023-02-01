@@ -2,31 +2,34 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 15:00:18
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-01-31 23:36:17
+ * @Last Modified time: 2023-02-01 16:49:50
  */
  -->
 
 <template>
   <q-virtual-scroll
-    class="table"
+    style="background-color: red"
     type="table"
-    style="max-height: 80vh"
     :virtual-scroll-item-size="30"
     :items="AdList"
+    scroll-target="body"
+    :virtual-scroll-sticky-size-start="30"
+    :virtual-scroll-sticky-size-end="32"
     v-slot="{ item: row, index }"
   >
     <tr :key="index" @click="openAd(row[7])">
       <td>{{ row[1] }}</td>
       <td>{{ row[2] }}</td>
+      <td>{{ date.formatDate(row[6], 'MM月DD日 HH点mm分') }}</td>
       <td>{{ row[3] }}</td>
       <td>{{ row[4] }}</td>
       <td>{{ row[5] }}</td>
-      <td>{{ row[6] }}</td>
     </tr>
   </q-virtual-scroll>
 </template>
 
 <script setup lang="ts">
+import { date } from 'quasar';
 defineProps<{
   AdList: [];
 }>();
@@ -37,16 +40,7 @@ const openAd = (url: string) => {
 </script>
 
 <style lang="scss" scoped>
-.table {
-  background-color: $table-background;
-}
-
-.q-table tbody td {
+.q-table tbody tr td {
   height: 30px;
-  // width: 50%;
-}
-
-.q-table {
-  width: 70%;
 }
 </style>
