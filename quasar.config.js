@@ -2,7 +2,7 @@
  * @Author: xiaocao
  * @Date:   2023-01-29 16:30:13
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-01 10:42:20
+ * @Last Modified time: 2023-02-02 16:39:57
  */
 /* eslint-env node */
 
@@ -34,7 +34,7 @@ module.exports = configure(function (/* ctx */) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ['i18n', 'axios', 'vue-virtual-scroller'],
+    boot: ['i18n', 'axios'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ['app.scss'],

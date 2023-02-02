@@ -2,7 +2,7 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 15:00:18
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-01 23:24:24
+ * @Last Modified time: 2023-02-02 21:26:15
  */
  -->
 
@@ -38,12 +38,4 @@ const openAd = (url: string) => {
 };
 </script>
 
-<style lang="scss" scoped>
-.q-table tbody tr td {
-  height: 30px;
-}
-
-.q-table tbody tr {
-  text-align: center;
-}
-</style>
+<style lang="scss" scoped></style>

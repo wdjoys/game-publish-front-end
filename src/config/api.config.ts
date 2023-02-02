@@ -2,12 +2,12 @@
  * @Author: xiaocao
  * @Date:   2022-10-26 09:46:30
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-01-30 17:57:28
+ * @Last Modified time: 2023-02-02 14:39:08
  */
 // 后端API应用地址
 export const baseURL =
   process.env.NODE_ENV === 'development'
-    ? '//api-1.xn--dpq60w4ytokv.com/'
+    ? '//127.0.0.1:9090/'
     : '//8088.gr931814.10vq2pby.paas.mkyun.cn/';
 
 // api路径
