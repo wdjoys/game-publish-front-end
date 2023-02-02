@@ -2,13 +2,12 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 15:00:18
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-01 16:49:50
+ * @Last Modified time: 2023-02-02 17:04:22
  */
  -->
 
 <template>
   <q-virtual-scroll
-    style="background-color: red"
     type="table"
     :virtual-scroll-item-size="30"
     :items="AdList"
@@ -39,8 +38,4 @@ const openAd = (url: string) => {
 };
 </script>
 
-<style lang="scss" scoped>
-.q-table tbody tr td {
-  height: 30px;
-}
-</style>
+<style lang="scss" scoped></style>
