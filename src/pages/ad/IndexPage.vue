@@ -2,27 +2,23 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 15:00:18
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-02 22:04:04
+ * @Last Modified time: 2023-02-02 23:09:42
  */
  -->
 
 <template>
-  <div class="row justify-center items-center" style="height: 100%">
-    <q-markup-table style="width: 1200px" v-if="AdList.length == 0">
-      <tbody>
-        <tr v-for="n in 25" :key="n">
-          <td v-for="k in 6" :key="k">
-            <q-skeleton animation="pulse-x" type="text" width="85px" />
-          </td>
-        </tr>
-      </tbody>
-    </q-markup-table>
-    <AdTable style="width: 1200px" :AdList="AdList" />
+  <div
+    class="row justify-center horiz-center"
+    style="height: 100%; width: 1100px"
+  >
+    <AdFilter />
+    <AdTable :AdList="AdList" />
   </div>
 </template>
 
 <script setup lang="ts">
 import AdTable from 'components/ad/AdTable.vue';
+import AdFilter from 'components/ad/AdFilter.vue';
 import { Ad } from '@/api/ad';
 
 import { onBeforeMount, reactive } from 'vue';
@@ -39,13 +35,4 @@ onBeforeMount(() => {
 });
 </script>
 
-<style lang="scss" scoped>
-.q-table tbody tr td {
-  height: 30px;
-}
-
-.q-table tbody tr {
-  background-color: rgb(238, 223, 223);
-  text-align: center;
-}
-</style>
+<style lang="scss" scoped></style>
