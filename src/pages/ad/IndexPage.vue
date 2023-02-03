@@ -2,16 +2,16 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 15:00:18
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-02 23:32:27
+ * @Last Modified time: 2023-02-03 17:25:04
  */
  -->
 
 <template>
   <div
-    class="row justify-center horiz-center q-gutter-y-lg"
+    class="row justify-center horiz-center"
     style="height: 100%; width: 1100px"
   >
-    <AdFilter />
+    <AdFilter style="margin: 20px 0" />
     <AdTable :AdList="AdList" />
   </div>
 </template>

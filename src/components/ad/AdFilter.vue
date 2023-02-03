@@ -2,24 +2,46 @@
  * @Author: xiaocao
  * @Date:   2023-02-02 22:55:35
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-02 23:52:59
+ * @Last Modified time: 2023-02-03 17:18:24
  */
  -->
 
 <template>
-  <div class="row" style="width: 100%">
-    <div class="col-2" v-for="n in 5" :key="n">
-      <q-btn class="full-width" color="primary" label="Button" />
+  <div class="column q-gutter-y-md" style="width: 100%">
+    <div class="">起止时间：<AntTimeRangePicker /></div>
+    <div class="">
+      版本类型：<q-option-group
+        v-model="formData.tags"
+        :options="adConfig.tag_options"
+        color="primary"
+        type="checkbox"
+        inline
+        dense
+        style="display: inline-block"
+      />
     </div>
+
+    <q-btn class="full-width" color="primary" label="搜索" />
   </div>
 </template>
 
 <style lang="scss" scoped></style>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import 'ant-design-vue/es/time-picker/style/css';
 
-const form = reactive({
+import { TimeRangePicker as AntTimeRangePicker } from 'ant-design-vue';
+import { reactive, onMounted } from 'vue';
+import { useAdStore } from '@/stores/ad';
+
+const adConfig = useAdStore();
+
+onMounted(() => {
+  adConfig.fetch_sources();
+  adConfig.fetch_tags();
+});
+
+const formData = reactive({
   start: 0,
   end: 0,
   tags: [],

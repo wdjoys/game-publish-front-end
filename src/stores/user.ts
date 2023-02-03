@@ -2,7 +2,7 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 11:01:45
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-01-30 14:33:39
+ * @Last Modified time: 2023-02-03 16:52:31
  */
 
 import { defineStore } from 'pinia';
@@ -38,7 +38,7 @@ export const useUserStore = defineStore('user', {
       if (Object.keys(this.userInfo).length === 0) {
         if (SessionStorage.getItem('userInfo')) {
           this.userInfo = SessionStorage.getItem('userInfo') as UserInfo;
-        } else {
+        } else if (LocalStorage.getItem('userInfo')) {
           this.userInfo = LocalStorage.getItem('userInfo') as UserInfo;
         }
       }

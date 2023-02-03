@@ -2,7 +2,7 @@
  * @Author: xiaocao
  * @Date:   2022-10-26 09:46:30
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-02 14:39:08
+ * @Last Modified time: 2023-02-03 14:30:13
  */
 // 后端API应用地址
 export const baseURL =
@@ -20,7 +20,9 @@ export const PATH = {
 
   //APP接口地址
   //APP  - 选型应用接口url ——————————————————————————————————————————————————————————————————————————————————
-  data: '/data/', //选型
+  ad: '/data/ad/',
+  tag: '/data/tag/',
+  source: '/data/source/',
 
   //APP  - 选型应用接口url ——————————————————————————————————————————————————————————————————————————————————
 };
