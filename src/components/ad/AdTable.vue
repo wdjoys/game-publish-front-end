@@ -2,7 +2,7 @@
  * @Author: xiaocao
  * @Date:   2023-01-30 15:00:18
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-02 23:15:53
+ * @Last Modified time: 2023-02-04 15:41:36
  */
  -->
 
@@ -19,20 +19,11 @@
     <template #before>
       <tbody v-if="AdList.length == 0">
         <tr v-for="n in 25" :key="n">
-          <td>
+          <td v-for="k in 6" :key="k">
             <q-skeleton
               animation="pulse-x"
               type="text"
-              width="180px"
-              class="horiz-center"
-            />
-          </td>
-
-          <td v-for="k in 5" :key="k">
-            <q-skeleton
-              animation="pulse-x"
-              type="text"
-              width="80px"
+              width="90px"
               class="horiz-center"
             />
           </td>
@@ -41,13 +32,13 @@
     </template>
 
     <template v-slot="{ item: row, index }">
-      <tr :key="index" @click="openAd(row[7])">
-        <td>{{ row[1] }}</td>
-        <td>{{ row[2] }}</td>
-        <td>{{ date.formatDate(row[6], 'MM月DD日 HH点mm分') }}</td>
-        <td>{{ row[3] }}</td>
-        <td>{{ row[4] }}</td>
-        <td>{{ row[5] }}</td>
+      <tr :key="index" @click="openAd(row[0][6])">
+        <td>{{ row[0][0] }}</td>
+        <td>{{ row[0][1] }}</td>
+        <td>{{ date.formatDate(row[0][2], 'MM月DD日 HH点mm分') }}</td>
+        <td>{{ row[0][3] }}</td>
+        <td>{{ row[0][4] }}</td>
+        <td>{{ row[0][5] }}</td>
       </tr>
     </template>
   </q-virtual-scroll>
@@ -55,8 +46,10 @@
 
 <script setup lang="ts">
 import { date } from 'quasar';
+import { Ad as AdType } from '@/type';
+
 defineProps<{
-  AdList: [];
+  AdList: AdType[];
 }>();
 
 const openAd = (url: string) => {

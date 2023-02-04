@@ -2,7 +2,7 @@
  * @Author: xiaocao
  * @Date:   2023-02-02 22:55:35
  * @Last Modified by:   xiaocao
- * @Last Modified time: 2023-02-03 17:18:24
+ * @Last Modified time: 2023-02-04 15:02:01
  */
  -->
 
@@ -21,7 +21,7 @@
       />
     </div>
 
-    <q-btn class="full-width" color="primary" label="搜索" />
+    <q-btn class="full-width" color="primary" label="搜索" @click="search" />
   </div>
 </template>
 
@@ -31,19 +31,20 @@
 import 'ant-design-vue/es/time-picker/style/css';
 
 import { TimeRangePicker as AntTimeRangePicker } from 'ant-design-vue';
-import { reactive, onMounted } from 'vue';
+import { reactive } from 'vue';
 import { useAdStore } from '@/stores/ad';
 
 const adConfig = useAdStore();
-
-onMounted(() => {
-  adConfig.fetch_sources();
-  adConfig.fetch_tags();
-});
 
 const formData = reactive({
   start: 0,
   end: 0,
   tags: [],
 });
+
+const emit = defineEmits(['filter', '']);
+// 把赛选的配置信息传给父组件
+const search = () => {
+  emit('filter', formData);
+};
 </script>
